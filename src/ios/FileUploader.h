@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import "UploadEvent.h"
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
 #import <math.h>
 NS_ASSUME_NONNULL_BEGIN
 @protocol FileUploaderDelegate <NSObject>
