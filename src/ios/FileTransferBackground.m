@@ -1,6 +1,6 @@
 #import <Cordova/CDV.h>
 #import "FileTransferBackground.h"
-#import <AFNetworking/AFNetworking.h>
+#import "AFNetworking.h"
 #import "FileUploader.h"
 
 @interface FileTransferBackground()
