@@ -7,11 +7,11 @@
     <js-module src="www/FileTransferManager.js" name="FileTransferManager">
         <clobbers target="FileTransferManager" />
     </js-module>
-     <engines>
+    <engines>
         <engine name="cordova" version=">=8.0.0" />
         <engine name="cordova-android" version=">=8.0.0" />
     </engines>
-   <dependency id="cordova-plugin-file" version="8.1.0"/>
+    <dependency id="cordova-plugin-file" version="8.1.0"/>
     <platform name="android">
         <framework src="androidx.work:work-runtime:2.8.0" />
         <framework src="com.squareup.okhttp3:okhttp:4.9.3" />
@@ -53,16 +53,25 @@
         <resource-file src="src/android/res/ic_upload.png" target="res/drawable/ic_upload.png" />
     </platform>
     <platform name="ios">
-       <podspec>
-            <config>
-                <source url="https://cdn.cocoapods.org/"/>
-            </config>
-        </podspec>
         <config-file target="config.xml" parent="/*">
             <feature name="FileTransferBackground">
                 <param name="ios-package" value="FileTransferBackground" />
             </feature>
         </config-file>
+        <header-file src="src/ios/AFCompatibilityMacros.h" />
+        <header-file src="src/ios/AFHTTPSessionManager.h" />
+        <source-file src="src/ios/AFHTTPSessionManager.m" />
+        <header-file src="src/ios/AFNetworking.h" />
+        <header-file src="src/ios/AFNetworkReachabilityManager.h" />
+        <source-file src="src/ios/AFNetworkReachabilityManager.m" />
+        <header-file src="src/ios/AFSecurityPolicy.h" />
+        <source-file src="src/ios/AFSecurityPolicy.m" />
+        <header-file src="src/ios/AFURLRequestSerialization.h" />
+        <source-file src="src/ios/AFURLRequestSerialization.m" />
+        <header-file src="src/ios/AFURLResponseSerialization.h" />
+        <source-file src="src/ios/AFURLResponseSerialization.m" />
+        <header-file src="src/ios/AFURLSessionManager.h" />
+        <source-file src="src/ios/AFURLSessionManager.m" />
         <header-file src="src/ios/FileTransferBackground.h" />
         <source-file src="src/ios/FileTransferBackground.m" />
         <header-file src="src/ios/UploadEvent.h" />
