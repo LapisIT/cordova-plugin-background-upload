@@ -57,9 +57,6 @@
             <config>
                 <source url="https://cdn.cocoapods.org/"/>
             </config>
-            <pods use-frameworks="true">
-                <pod name="AFNetworking" spec="~> 4.0.1" />
-            </pods>
         </podspec>
         <config-file target="config.xml" parent="/*">
             <feature name="FileTransferBackground">
