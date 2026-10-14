@@ -23,7 +23,6 @@
 #if !TARGET_OS_WATCH
 
 #import <netinet/in.h>
-#import <netinet6/in6.h>
 #import <arpa/inet.h>
 #import <ifaddrs.h>
 #import <netdb.h>
@@ -129,7 +128,7 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
     SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithName(kCFAllocatorDefault, [domain UTF8String]);
 
     AFNetworkReachabilityManager *manager = [[self alloc] initWithReachability:reachability];
-    
+
     CFRelease(reachability);
 
     return manager;
@@ -140,7 +139,7 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
     AFNetworkReachabilityManager *manager = [[self alloc] initWithReachability:reachability];
 
     CFRelease(reachability);
-    
+
     return manager;
 }
 
@@ -182,7 +181,7 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
 
 - (void)dealloc {
     [self stopMonitoring];
-    
+
     if (_networkReachability != NULL) {
         CFRelease(_networkReachability);
     }
@@ -219,7 +218,7 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
         if (strongSelf.networkReachabilityStatusBlock) {
             strongSelf.networkReachabilityStatusBlock(status);
         }
-        
+
         return strongSelf;
     };
 

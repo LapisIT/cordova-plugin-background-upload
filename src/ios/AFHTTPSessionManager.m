@@ -29,7 +29,6 @@
 #import <Security/Security.h>
 
 #import <netinet/in.h>
-#import <netinet6/in6.h>
 #import <arpa/inet.h>
 #import <ifaddrs.h>
 #import <netdb.h>
@@ -124,7 +123,7 @@
                       success:(nullable void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success
                       failure:(nullable void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure
 {
-    
+
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"GET"
                                                         URLString:URLString
                                                        parameters:parameters
@@ -133,9 +132,9 @@
                                                  downloadProgress:downloadProgress
                                                           success:success
                                                           failure:failure];
-    
+
     [dataTask resume];
-    
+
     return dataTask;
 }
 
@@ -150,9 +149,9 @@
             success(task);
         }
     } failure:failure];
-    
+
     [dataTask resume];
-    
+
     return dataTask;
 }
 
@@ -164,9 +163,9 @@
                                 failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure
 {
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"POST" URLString:URLString parameters:parameters headers:headers uploadProgress:uploadProgress downloadProgress:nil success:success failure:failure];
-    
+
     [dataTask resume];
-    
+
     return dataTask;
 }
 
@@ -188,10 +187,10 @@
                 failure(nil, serializationError);
             });
         }
-        
+
         return nil;
     }
-    
+
     __block NSURLSessionDataTask *task = [self uploadTaskWithStreamedRequest:request progress:uploadProgress completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *error) {
         if (error) {
             if (failure) {
@@ -203,9 +202,9 @@
             }
         }
     }];
-    
+
     [task resume];
-    
+
     return task;
 }
 
@@ -216,9 +215,9 @@
                       failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"PUT" URLString:URLString parameters:parameters headers:headers uploadProgress:nil downloadProgress:nil success:success failure:failure];
-    
+
     [dataTask resume];
-    
+
     return dataTask;
 }
 
@@ -229,9 +228,9 @@
                         failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"PATCH" URLString:URLString parameters:parameters headers:headers uploadProgress:nil downloadProgress:nil success:success failure:failure];
-    
+
     [dataTask resume];
-    
+
     return dataTask;
 }
 
@@ -242,9 +241,9 @@
                          failure:(nullable void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     NSURLSessionDataTask *dataTask = [self dataTaskWithHTTPMethod:@"DELETE" URLString:URLString parameters:parameters headers:headers uploadProgress:nil downloadProgress:nil success:success failure:failure];
-    
+
     [dataTask resume];
-    
+
     return dataTask;
 }
 
